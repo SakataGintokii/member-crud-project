@@ -1,7 +1,5 @@
 package com.example.app.File;
 
-
-
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +20,6 @@ public class FileController {
     //上傳檔案
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
-
         File uploadFiles  = new File("uploads");
 
         if(!uploadFiles.exists()) {
@@ -30,13 +27,13 @@ public class FileController {
         }
 
         //儲存資料並輸出結果
-        try{
+        try {
             String fileName = file.getOriginalFilename();
             Path path = Paths.get(uploadFiles.getAbsolutePath(), fileName);
             file.transferTo(path.toFile());
+
             return "上傳成功 ："+fileName;
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception e) {
             return "上傳失敗 :" + e.getMessage();
         }
 
@@ -44,27 +41,21 @@ public class FileController {
 
     //下載檔案
     @GetMapping("/download")
-    public ResponseEntity<Resource> downloadFile(@RequestParam String fileName){
-
+    public ResponseEntity<Resource> downloadFile(@RequestParam String fileName) {
         File file = new File("uploads",fileName);
 
-        if(!file.exists()){
+        if(!file.exists()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
         Resource resource = new FileSystemResource(file);
-
         HttpHeaders httpHeaders = new HttpHeaders();
-
-        //下載附件
         httpHeaders.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"");
 
         //顯示檔案內容，設置標頭以及屬性
         return ResponseEntity.ok().headers(httpHeaders).contentLength(file.length())
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .body(resource);
-
     }
-
 
 }
