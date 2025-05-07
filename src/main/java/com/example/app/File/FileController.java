@@ -40,8 +40,8 @@ public class FileController {
     }
 
     //下載檔案
-    @GetMapping("/download")
-    public ResponseEntity<Resource> downloadFile(@RequestParam String fileName) {
+    @GetMapping("/download/{fileName}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
         File file = new File("uploads",fileName);
 
         if(!file.exists()) {
