@@ -13,10 +13,8 @@ import java.util.List;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Integer> {
 
-
     // 關鍵字查詢
     @Query("SELECT m FROM Member m WHERE m.name LIKE %:keyword% OR m.email LIKE %:keyword% OR m.phone LIKE %:keyword%")
     //param 把 Java 的變數安全地帶進查詢裡，避免 SQL Injection
     List<Member> search(@Param("keyword") String keyword);
-
 }
