@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="membermanagment4" />
         <module name="membermanagment" />
         <module name="membermanagment2" />
       </profile>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="membermanagment" options="-parameters" />
       <module name="membermanagment2" options="-parameters" />
+      <module name="membermanagment4" options="-parameters" />
     </option>
   </component>
 </project>
