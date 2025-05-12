@@ -1,47 +1,63 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.log
-*.orig
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-
-# Packages
-*.7z
-*.dmg
-*.gz
-*.iso
+# === Java / Spring Boot build ===
+target/
+out/
+*.class
 *.jar
-*.rar
-*.tar
-*.zip
+*.war
+*.ear
 
-# OS or Editor folders
-._*
-.cache
-.idea
+# === Gradle ===
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# === Maven ===
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# === Logs ===
+*.log
+*.err
+
+# === IDEs / Editors ===
+.idea/
+*.iml
+.vscode/
 .project
 .settings
-.tmproj
-*.esproj
 *.sublime-project
 *.sublime-workspace
-nbproject
-Thumbs.db
-ehthumbs.db
+.nb-gradle/
+
+# === OS generated files (macOS) ===
 .DS_Store
-.DS_Store?
+.AppleDouble
+.LSOverride
 .Spotlight-V100
 .Trashes
+.VolumeIcon.icns
+.fseventsd
+.TemporaryItems
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon?
+
+# === Temporary files / swap / patch ===
 *.swp
-._*
+*.swo
+*.vi
+*~
+*.orig
+*.rej
+*.diff
 
-# Folders to ignore
-bower_components
-node_modules
-
-# target
-target/
+# === Environment variables ===
+.env

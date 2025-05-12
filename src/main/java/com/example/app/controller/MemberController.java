@@ -5,6 +5,7 @@ import com.example.app.service.MemberService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/members")
 public class MemberController {
